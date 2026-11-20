@@ -1,0 +1,7 @@
+digraph A{rankdir=LR;nodesep=0.3;ranksep=0.45;node[shape=box,style="rounded,filled",fontname="Helvetica",fontsize=13,color="#444441",margin="0.15,0.1"];edge[color="#555555",fontname="Helvetica",fontsize=10];
+csv[label="6 archivos\nCSV",fillcolor="#F1EFE8"];
+etl[label="ETL\nen C#",fillcolor="#EAF3DE"];
+oltp[label="Esquema\nopiniones\n(transaccional)",fillcolor="#E6F1FB"];
+dw[label="Esquema dw\n(estrella)",fillcolor="#FAECE7"];
+bi[label="Vistas y\nconsultas",fillcolor="#F1EFE8"];
+csv->etl;etl->oltp[label="INSERT"];oltp->dw[label="sp_cargar_dw"];dw->bi;}

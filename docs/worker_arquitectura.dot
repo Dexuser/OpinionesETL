@@ -1,0 +1,35 @@
+digraph G {
+  rankdir=TB; compound=true; fontname="Helvetica"; nodesep=0.3; ranksep=0.45;
+  node [fontname="Helvetica", fontsize=15, shape=box, style="rounded,filled", fillcolor="#FFFFFF", color="#1F4E79"];
+  edge [fontname="Helvetica", fontsize=12, color="#555555"];
+
+  subgraph cluster_f { label="FUENTES"; fontsize=16; style="rounded,filled"; fillcolor="#EAF1F8"; color="#1F4E79";
+    csv [label="CSV de encuestas\nsurveys_*.csv", shape=note];
+    ops [label="Base operacional\nesquema opiniones", shape=cylinder];
+    api [label="API REST\ncomentarios sociales", shape=component];
+  }
+
+  subgraph cluster_w { label="WORKER SERVICE (.NET 8) — Arquitectura Onion"; fontsize=16; style="rounded,filled"; fillcolor="#F7F9FC"; color="#1F4E79";
+    host [label="Host: Program · Worker\n(BackgroundService) · Serilog", width=4.6];
+    infra [label="Infrastructure: CsvExtractor\nDatabaseExtractor · ApiExtractor\nStagingRepository · DataLoader", width=4.6];
+    app [label="Application: IExtractor · IDataLoader\nPipelineEtl · Limpieza · Transformadores", width=4.6];
+    dom [label="Domain: Entidades · IStagingRepository", width=4.6];
+    host -> infra [label=" inyección de dependencias"]; infra -> app [label=" implementa"]; app -> dom;
+  }
+
+  subgraph cluster_d { label="BASE ANALÍTICA — PostgreSQL (opiniones_clientes)"; fontsize=16; style="rounded,filled"; fillcolor="#EAF1F8"; color="#1F4E79";
+    stg [label="Esquema stg\nopinion · cliente · producto · rechazo", shape=cylinder, fillcolor="#FFF2CC"];
+    dw [label="Esquema dw (estrella)\nfact_opinion + 6 dimensiones", shape=cylinder, fillcolor="#D9EAD3"];
+    stg -> dw [label=" stg.sp_cargar_dw"];
+  }
+
+  bi [label="Consumo analítico: Power BI / consultas SQL", shape=box3d, fillcolor="#FCE5CD"];
+  log [label="Logs: consola\n+ archivo", shape=note];
+
+  csv -> infra [label="streaming (CsvHelper)", lhead=cluster_w];
+  ops -> infra [label="Npgsql, solo lectura"];
+  api -> infra [label="HTTP + JSON paginado"];
+  infra -> stg [label=" COPY binario", ltail=cluster_w, lhead=cluster_d];
+  dw -> bi;
+  host -> log [style=dashed, constraint=false];
+}

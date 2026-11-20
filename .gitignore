@@ -1,0 +1,9 @@
+bin/
+obj/
+.vs/
+.idea/
+*.user
+
+# Worker: secretos y logs
+appsettings.Development.json
+**/logs/

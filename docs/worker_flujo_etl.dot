@@ -1,0 +1,26 @@
+digraph F {
+  rankdir=TB; fontname="Helvetica"; nodesep=0.4; ranksep=0.45;
+  node [fontname="Helvetica", fontsize=16, shape=box, style="rounded,filled", fillcolor="#FFFFFF", color="#1F4E79"];
+  edge [fontname="Helvetica", fontsize=13, color="#555555"];
+
+  ini [label="Inicio del Worker\n(modo UnaVez o Periodico)", shape=oval, fillcolor="#D9EAD3"];
+  cfg [label="Leer configuración\nfuentes habilitadas · cadenas de conexión · API key (entorno)"];
+  par [label="EXTRACCIÓN EN PARALELO\nTask.WhenAll — cada fuente aislada de las demás", fillcolor="#EAF1F8"];
+  e1 [label="CsvExtractor\nlee archivos fila a fila"]; e2 [label="DatabaseExtractor\nreseñas web + clientes + productos"]; e3 [label="ApiExtractor\npagina, reintenta (backoff)"];
+  tr [label="Por cada registro:\nlimpiar → validar → transformar\n(Result<OpinionStaging>)"];
+  ok [label="¿Válido?", shape=diamond, fillcolor="#FFF2CC"];
+  rej [label="Registrar rechazo\nstg.rechazo (etapa Extraccion)", fillcolor="#F4CCCC"];
+  stg [label="Staging por origen\nDELETE + COPY en una transacción\n(stg.opinion / cliente / producto)", fillcolor="#FFF2CC"];
+  alguna [label="¿Alguna fuente\nse extrajo bien?", shape=diamond, fillcolor="#FFF2CC"];
+  stop [label="No se carga dw\nResumen con errores (exit 1)", fillcolor="#F4CCCC"];
+  carga [label="CARGA stg → dw (una transacción)\n1 dimensiones producto/cliente/tiempo/fuente\n2 rechazo de integridad (FK inexistentes)\n3 hechos con ON CONFLICT DO NOTHING", fillcolor="#D9EAD3"];
+  res [label="Resumen y métricas\nleídos · extraídos · rechazados · filas/s · duración"];
+  per [label="¿Modo periódico?", shape=diamond, fillcolor="#FFF2CC"];
+  esp [label="Esperar IntervaloMinutos"]; fin [label="Fin", shape=oval, fillcolor="#D9EAD3"];
+
+  ini -> cfg -> par; par -> e1; par -> e2; par -> e3;
+  e1 -> tr; e2 -> tr; e3 -> tr; tr -> ok;
+  ok -> rej [label="no"]; ok -> stg [label="sí"]; rej -> stg [style=dashed, label="se registran\nal terminar"];
+  stg -> alguna; alguna -> stop [label="no"]; alguna -> carga [label="sí"];
+  carga -> res; stop -> res; res -> per; per -> esp [label="sí"]; esp -> par [constraint=false]; per -> fin [label="no"];
+}

@@ -1,0 +1,70 @@
+openapi: 3.0.3
+info:
+  title: API de Comentarios Sociales
+  version: 1.0.0
+  description: |
+    Contrato que consume el Worker ETL (ApiExtractor). Expone los comentarios de redes sociales
+    registrados por el sistema operacional. Lectura paginada, autenticada con API key.
+servers:
+  - url: http://localhost:5080
+    description: API de prueba (OpinionesETL.Mock.Api)
+security:
+  - ApiKey: []
+paths:
+  /api/comentarios-sociales:
+    get:
+      summary: Lista paginada de comentarios sociales
+      parameters:
+        - name: pagina
+          in: query
+          schema: { type: integer, minimum: 1, default: 1 }
+          description: Número de página, empezando en 1.
+        - name: tamanio
+          in: query
+          schema: { type: integer, minimum: 1, maximum: 500, default: 100 }
+          description: Cantidad de comentarios por página.
+      responses:
+        '200':
+          description: Página de resultados.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PaginaComentarios' }
+        '401':
+          description: API key ausente o inválida. El cliente NO debe reintentar.
+        '429':
+          description: Demasiadas solicitudes. El cliente reintenta con espera exponencial.
+        '503':
+          description: Servicio no disponible. El cliente reintenta con espera exponencial.
+components:
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
+  schemas:
+    PaginaComentarios:
+      type: object
+      required: [pagina, tamanio, total, totalPaginas, datos]
+      properties:
+        pagina:       { type: integer, example: 1 }
+        tamanio:      { type: integer, example: 100 }
+        total:        { type: integer, example: 200, description: Total de comentarios disponibles. }
+        totalPaginas: { type: integer, example: 2 }
+        datos:
+          type: array
+          items: { $ref: '#/components/schemas/ComentarioSocial' }
+    ComentarioSocial:
+      type: object
+      required: [idComment, idProducto, redSocial, fecha, comentario]
+      properties:
+        idComment:  { type: string, maxLength: 20, example: T0001 }
+        idCliente:  { type: integer, nullable: true, example: 19, description: Nulo cuando el comentario es anónimo. }
+        idProducto: { type: integer, example: 3 }
+        redSocial:  { type: string, example: Instagram, description: Instagram, Facebook o Twitter. }
+        fecha:      { type: string, format: date, example: '2025-06-15' }
+        comentario: { type: string, maxLength: 500, example: Información suficiente, sin mayor novedad }
+        sentimiento:
+          type: string
+          nullable: true
+          enum: [Positiva, Neutra, Negativa]
+          description: Opcional. Si no viene, el Worker lo clasifica por palabras clave.

@@ -1,0 +1,10 @@
+{
+  "_comentario": "Copie a appsettings.Development.json (ignorado por git) o use user-secrets / variables de entorno. NO suba contraseñas al repositorio.",
+  "ConnectionStrings": {
+    "Operacional": "Host=localhost;Database=opiniones_clientes;Username=postgres;Password=SU_CLAVE",
+    "Analitica": "Host=localhost;Database=opiniones_clientes;Username=postgres;Password=SU_CLAVE"
+  },
+  "Fuentes": {
+    "Api": { "ApiKey": "SU_API_KEY" }
+  }
+}

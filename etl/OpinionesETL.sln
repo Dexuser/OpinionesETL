@@ -1,0 +1,45 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpinionesETL.Domain", "src\OpinionesETL.Domain\OpinionesETL.Domain.csproj", "{60260AA7-1EB9-4654-A072-CFF13AAEEFBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpinionesETL.Application", "src\OpinionesETL.Application\OpinionesETL.Application.csproj", "{6763BF6F-4066-4AAA-90E4-872D5CADBD09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpinionesETL.Infrastructure", "src\OpinionesETL.Infrastructure\OpinionesETL.Infrastructure.csproj", "{8D02B344-B2CF-4916-8ECA-E65014CF8280}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpinionesETL.Console", "src\OpinionesETL.Console\OpinionesETL.Console.csproj", "{1C3D7BFD-DE39-405A-875A-29E0414FCC71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpinionesETL.Tests", "tests\OpinionesETL.Tests\OpinionesETL.Tests.csproj", "{E35EB47B-0AE1-470B-AF2F-C09B0A9E930C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60260AA7-1EB9-4654-A072-CFF13AAEEFBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60260AA7-1EB9-4654-A072-CFF13AAEEFBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60260AA7-1EB9-4654-A072-CFF13AAEEFBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60260AA7-1EB9-4654-A072-CFF13AAEEFBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6763BF6F-4066-4AAA-90E4-872D5CADBD09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6763BF6F-4066-4AAA-90E4-872D5CADBD09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6763BF6F-4066-4AAA-90E4-872D5CADBD09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6763BF6F-4066-4AAA-90E4-872D5CADBD09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D02B344-B2CF-4916-8ECA-E65014CF8280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D02B344-B2CF-4916-8ECA-E65014CF8280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D02B344-B2CF-4916-8ECA-E65014CF8280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D02B344-B2CF-4916-8ECA-E65014CF8280}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C3D7BFD-DE39-405A-875A-29E0414FCC71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C3D7BFD-DE39-405A-875A-29E0414FCC71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C3D7BFD-DE39-405A-875A-29E0414FCC71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C3D7BFD-DE39-405A-875A-29E0414FCC71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E35EB47B-0AE1-470B-AF2F-C09B0A9E930C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E35EB47B-0AE1-470B-AF2F-C09B0A9E930C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E35EB47B-0AE1-470B-AF2F-C09B0A9E930C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E35EB47B-0AE1-470B-AF2F-C09B0A9E930C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

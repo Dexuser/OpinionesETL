@@ -1,0 +1,301 @@
+IdOpinion,IdCliente,IdProducto,Fecha,Comentario,Clasificación,PuntajeSatisfacción,Fuente
+501,331,123,2024-11-28,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+502,191,97,2025-06-19,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+503,196,103,2024-10-21,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+504,393,55,2025-03-12,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+505,26,157,2024-09-15,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+506,399,50,2024-12-06,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+507,403,164,2025-03-23,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+508,267,8,2025-07-02,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+509,102,54,2024-11-02,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+510,17,30,2024-11-09,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+511,45,151,2025-04-24,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+512,417,148,2024-11-30,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+513,229,137,2025-04-22,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+514,38,194,2025-06-16,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+515,458,151,2024-09-15,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+516,430,63,2025-02-24,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+517,272,154,2025-02-07,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+518,170,76,2025-03-04,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+519,76,171,2025-01-20,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+520,289,164,2024-11-15,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+521,465,187,2025-07-17,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+522,258,99,2025-02-23,"No funciona como se anuncia, muy decepcionado.",Negativa,2,EncuestaInterna
+523,158,151,2024-09-13,"No funciona como se anuncia, muy decepcionado.",Negativa,2,EncuestaInterna
+524,352,9,2024-12-15,Pésimo servicio y el producto llegó dañado.,Negativa,1,EncuestaInterna
+525,110,37,2025-07-21,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+526,491,196,2024-11-17,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+527,6,25,2025-06-26,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+528,479,37,2024-11-28,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+529,133,175,2024-11-09,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+530,187,39,2025-03-22,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+531,385,116,2024-12-04,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+532,79,62,2025-08-09,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+533,410,181,2025-08-12,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+534,6,194,2025-02-28,"No funciona como se anuncia, muy decepcionado.",Negativa,2,EncuestaInterna
+535,190,133,2025-05-02,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+536,489,18,2024-11-16,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+537,233,158,2025-04-07,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+538,170,85,2024-10-31,Pésimo servicio y el producto llegó dañado.,Negativa,1,EncuestaInterna
+539,80,66,2024-10-29,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+540,379,38,2025-05-12,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+541,321,19,2024-10-23,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+542,180,158,2024-10-01,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+543,63,176,2025-06-30,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+544,388,77,2024-12-25,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+545,138,50,2025-07-25,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+546,286,150,2025-04-10,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+547,137,171,2025-02-10,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+548,235,161,2025-07-24,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+549,12,194,2025-05-31,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+550,284,39,2025-08-23,Pésimo servicio y el producto llegó dañado.,Negativa,1,EncuestaInterna
+551,205,90,2025-04-02,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+552,449,200,2025-01-26,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+553,468,135,2025-04-07,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+554,190,24,2025-01-08,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+555,368,94,2025-05-24,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+556,279,179,2025-04-24,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+557,177,66,2025-01-11,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+558,1,185,2025-07-17,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+559,333,66,2024-09-24,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+560,496,185,2025-02-03,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+561,20,44,2025-03-10,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+562,308,91,2025-07-29,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+563,79,157,2024-12-30,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+564,338,128,2025-05-02,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+565,104,61,2025-07-11,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+566,373,72,2024-11-15,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+567,422,70,2025-01-01,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+568,419,136,2025-06-11,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+569,333,161,2025-08-27,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+570,24,132,2024-11-02,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+571,150,101,2024-09-04,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+572,70,6,2024-12-14,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+573,138,74,2025-07-21,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+574,498,19,2024-11-11,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+575,110,40,2025-05-07,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+576,50,141,2024-09-27,"No funciona como se anuncia, muy decepcionado.",Negativa,2,EncuestaInterna
+577,79,173,2024-10-28,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+578,105,163,2025-03-07,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+579,296,184,2025-04-01,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+580,86,84,2025-06-12,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+581,113,78,2025-06-03,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+582,161,164,2024-11-20,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+583,491,95,2025-04-11,Pésimo servicio y el producto llegó dañado.,Negativa,1,EncuestaInterna
+584,342,35,2024-10-31,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+585,421,87,2025-02-02,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+586,360,138,2024-12-14,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+587,212,120,2025-07-10,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+588,400,83,2025-04-19,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+589,180,45,2024-10-29,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+590,54,152,2024-09-10,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+591,41,187,2025-02-07,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+592,70,2,2025-04-21,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+593,371,145,2024-12-18,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+594,174,168,2024-11-08,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+595,455,170,2025-07-20,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+596,130,50,2025-07-14,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+597,483,119,2025-08-29,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+598,497,14,2025-05-25,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+599,74,180,2024-12-19,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+600,384,132,2025-04-10,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+601,249,31,2025-01-23,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+602,99,151,2025-07-24,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+603,20,183,2024-11-06,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+604,60,26,2025-04-03,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+605,221,122,2025-05-15,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+606,151,41,2025-03-10,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+607,347,153,2025-05-29,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+608,183,79,2025-01-03,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+609,147,144,2025-08-18,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+610,429,114,2025-01-05,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+611,498,72,2024-09-21,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+612,21,165,2024-12-18,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+613,492,36,2024-09-17,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+614,138,78,2025-07-21,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+615,229,29,2025-07-30,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+616,272,41,2025-05-06,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+617,46,33,2025-04-06,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+618,302,146,2024-10-29,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+619,287,149,2025-03-04,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+620,435,117,2024-12-24,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+621,478,3,2025-05-22,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+622,464,107,2025-06-27,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+623,201,181,2025-02-14,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+624,334,112,2025-07-08,Pésimo servicio y el producto llegó dañado.,Negativa,1,EncuestaInterna
+625,475,132,2024-12-17,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+626,129,61,2025-05-26,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+627,236,191,2025-08-03,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+628,57,59,2024-10-06,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+629,170,121,2025-05-01,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+630,473,120,2025-08-12,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+631,128,35,2025-03-26,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+632,211,140,2025-04-21,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+633,378,137,2024-12-08,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+634,253,108,2025-01-14,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+635,389,142,2025-05-18,"No funciona como se anuncia, muy decepcionado.",Negativa,2,EncuestaInterna
+636,136,103,2024-12-11,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+637,349,138,2025-08-03,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+638,352,48,2024-09-21,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+639,319,98,2025-04-03,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+640,423,9,2025-06-06,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+641,32,83,2025-02-08,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+642,466,150,2025-02-04,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+643,276,78,2025-02-19,"No funciona como se anuncia, muy decepcionado.",Negativa,2,EncuestaInterna
+644,308,71,2025-05-27,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+645,149,97,2025-07-08,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+646,154,34,2025-04-10,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+647,158,62,2025-05-13,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+648,319,20,2025-03-01,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+649,414,90,2024-11-25,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+650,390,152,2024-10-03,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+651,311,54,2025-06-15,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+652,262,31,2024-09-26,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+653,163,3,2024-11-01,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+654,87,28,2025-06-27,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+655,464,114,2024-12-03,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+656,26,124,2025-01-04,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+657,413,90,2025-02-21,Pésimo servicio y el producto llegó dañado.,Negativa,1,EncuestaInterna
+658,186,95,2024-09-03,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+659,223,166,2024-10-24,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+660,469,155,2025-02-09,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+661,225,154,2025-01-20,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+662,132,39,2025-07-02,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+663,216,58,2025-05-23,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+664,89,139,2025-08-27,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+665,340,177,2025-02-22,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+666,295,110,2024-11-25,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+667,9,190,2025-05-12,Pésimo servicio y el producto llegó dañado.,Negativa,1,EncuestaInterna
+668,241,142,2025-06-05,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+669,74,32,2025-01-31,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+670,394,197,2025-08-11,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+671,160,19,2024-11-04,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+672,70,90,2025-05-04,"No funciona como se anuncia, muy decepcionado.",Negativa,2,EncuestaInterna
+673,385,112,2025-05-08,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+674,120,23,2025-04-27,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+675,391,60,2024-09-19,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+676,373,183,2025-01-31,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+677,248,137,2024-09-03,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+678,500,118,2024-10-14,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+679,499,3,2024-12-11,"No funciona como se anuncia, muy decepcionado.",Negativa,2,EncuestaInterna
+680,207,125,2025-05-30,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+681,245,30,2024-10-14,"No funciona como se anuncia, muy decepcionado.",Negativa,2,EncuestaInterna
+682,130,54,2025-04-10,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+683,327,1,2025-03-18,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+684,29,76,2025-07-14,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+685,91,24,2025-03-19,"No funciona como se anuncia, muy decepcionado.",Negativa,2,EncuestaInterna
+686,428,135,2025-07-15,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+687,117,153,2025-04-08,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+688,309,96,2024-11-25,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+689,316,153,2025-02-02,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+690,398,60,2025-01-07,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+691,322,122,2025-04-25,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+692,75,65,2024-11-30,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+693,336,165,2025-01-28,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+694,399,75,2024-10-12,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+695,85,141,2024-12-25,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+696,499,199,2025-06-14,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+697,317,41,2025-07-19,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+698,203,37,2025-05-10,Pésimo servicio y el producto llegó dañado.,Negativa,1,EncuestaInterna
+699,309,187,2024-12-15,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+700,147,63,2024-10-07,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+701,1,55,2025-07-07,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+702,203,191,2024-11-28,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+703,321,28,2025-08-21,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+704,21,60,2025-07-24,Pésimo servicio y el producto llegó dañado.,Negativa,1,EncuestaInterna
+705,420,32,2024-12-06,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+706,452,50,2024-11-27,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+707,497,33,2025-05-22,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+708,108,109,2024-11-22,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+709,188,42,2024-12-09,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+710,461,125,2025-08-19,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+711,158,71,2024-10-03,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+712,213,8,2025-01-29,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+713,46,51,2025-03-14,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+714,67,40,2025-04-16,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+715,486,41,2025-04-19,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+716,170,77,2024-09-03,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+717,89,48,2024-10-25,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+718,292,65,2024-10-27,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+719,381,9,2025-03-19,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+720,417,180,2025-01-01,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+721,296,69,2024-11-08,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+722,7,85,2024-10-30,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+723,448,51,2024-12-15,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+724,196,160,2024-11-23,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+725,16,34,2024-12-14,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+726,390,11,2025-07-23,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+727,333,9,2024-09-21,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+728,425,102,2025-04-22,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+729,293,6,2025-06-19,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+730,331,178,2025-06-27,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+731,7,13,2025-08-29,"No funciona como se anuncia, muy decepcionado.",Negativa,2,EncuestaInterna
+732,272,45,2024-10-03,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+733,251,131,2025-01-07,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+734,394,193,2025-04-21,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+735,167,115,2025-06-21,Pésimo servicio y el producto llegó dañado.,Negativa,1,EncuestaInterna
+736,235,145,2024-10-19,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+737,82,72,2025-05-24,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+738,268,163,2025-03-02,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+739,398,15,2025-07-06,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+740,146,187,2024-09-10,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+741,404,175,2024-12-08,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+742,256,193,2025-08-14,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+743,30,11,2025-04-17,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+744,60,88,2025-06-07,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+745,303,194,2025-06-05,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+746,45,179,2025-03-01,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+747,281,129,2025-02-28,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+748,38,196,2025-07-21,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+749,318,150,2024-10-19,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+750,451,151,2025-02-21,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+751,391,115,2025-02-01,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+752,423,126,2025-08-17,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+753,278,190,2025-08-06,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+754,320,77,2025-07-11,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+755,401,150,2025-04-29,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+756,488,79,2025-01-01,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+757,392,7,2025-07-15,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+758,105,124,2025-03-09,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+759,5,137,2025-06-09,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+760,412,2,2024-10-28,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+761,208,40,2025-01-07,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+762,114,133,2025-02-15,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+763,319,77,2025-02-11,"Buen producto, cumple con lo prometido.",Positiva,4,EncuestaInterna
+764,349,51,2025-02-14,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+765,464,114,2024-09-25,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+766,123,156,2024-09-28,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+767,359,156,2024-09-17,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+768,329,166,2025-03-15,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+769,20,125,2025-02-02,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+770,312,3,2025-05-29,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+771,316,85,2025-07-13,Pésimo servicio y el producto llegó dañado.,Negativa,1,EncuestaInterna
+772,51,90,2025-05-25,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+773,202,153,2025-04-14,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+774,347,168,2025-08-26,"No funciona como se anuncia, muy decepcionado.",Negativa,2,EncuestaInterna
+775,11,136,2025-06-17,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+776,44,105,2024-09-30,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+777,236,183,2025-03-15,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+778,45,180,2024-10-13,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+779,44,32,2024-10-31,"Excelente producto, superó mis expectativas.",Positiva,5,EncuestaInterna
+780,88,57,2025-01-22,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+781,354,82,2025-04-19,"Muy buena calidad, lo recomiendo totalmente.",Positiva,5,EncuestaInterna
+782,185,187,2025-02-08,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+783,59,152,2024-12-04,"Cumple su función, sin nada especial.",Neutra,3,EncuestaInterna
+784,292,25,2025-02-19,Pésimo servicio y el producto llegó dañado.,Negativa,1,EncuestaInterna
+785,419,77,2025-06-30,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+786,311,175,2025-03-10,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+787,478,110,2025-07-14,Pésimo servicio y el producto llegó dañado.,Negativa,1,EncuestaInterna
+788,141,179,2025-08-08,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+789,439,118,2024-10-23,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+790,37,70,2025-01-25,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+791,365,41,2025-06-20,"El producto está bien, pero esperaba un poco más de calidad.",Neutra,3,EncuestaInterna
+792,192,87,2024-10-13,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+793,6,126,2024-10-13,"Me encantó, llegó rápido y funciona perfecto.",Positiva,5,EncuestaInterna
+794,385,156,2025-05-26,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+795,72,9,2025-02-09,"Mala experiencia, no lo recomiendo.",Negativa,2,EncuestaInterna
+796,227,136,2025-05-07,"Muy mala calidad, se rompió a los pocos días.",Negativa,1,EncuestaInterna
+797,323,108,2025-02-18,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+798,209,105,2024-09-08,"Ni malo ni excelente, simplemente regular.",Neutra,3,EncuestaInterna
+799,83,96,2025-01-08,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna
+800,240,102,2025-07-23,"Muy satisfecho con la compra, buena relación calidad-precio.",Positiva,4,EncuestaInterna

@@ -1,0 +1,10 @@
+IdOpinion,IdCliente,IdProducto,Fecha,Comentario,Clasificación,PuntajeSatisfacción,Fuente
+9001,10,20,2025-03-01,"Excelente producto, lo recomiendo.",Positiva,5,EncuestaInterna
+9002,10,20,2025-03-02,Muy mala calidad.,Positiva,1,EncuestaInterna
+9003,10,20,fecha-mala,Comentario ok.,Neutra,3,EncuestaInterna
+9004,10,20,2025-03-04,,Neutra,3,EncuestaInterna
+9005,10,20,2025-03-05,Bien.,Neutra,9,EncuestaInterna
+9006,0,20,2025-03-06,Cliente cero.,Neutra,3,EncuestaInterna
+9001,11,21,2025-03-07,Duplicado del 9001.,Positiva,4,EncuestaInterna
+9008,12,22,2031-01-01,Fecha futura.,Neutra,3,EncuestaInterna
+9009,12,22,2025-03-09,Esta sí es válida.,Neutra,3,EncuestaInterna
