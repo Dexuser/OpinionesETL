@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Carga de dimensiones del Data Warehouse</title>
+<style>
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 11pt; color: #1a1a1a; margin: 0 8px; line-height: 1.45; }
+  h1 { font-size: 20pt; color: #1F4E79; margin-bottom: 2px; }
+  h2 { font-size: 14pt; color: #1F4E79; border-bottom: 2px solid #1F4E79; padding-bottom: 3px; margin-top: 26px; }
+  h3 { font-size: 11.5pt; color: #1F4E79; margin-bottom: 4px; margin-top: 16px; }
+  .meta { color: #555; margin-bottom: 14px; }
+  table { border-collapse: collapse; width: 100%; margin: 6px 0 12px; font-size: 9.5pt; }
+  th, td { border: 1px solid #b7c7d8; padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background: #DCE6F1; }
+  td.num, th.num { text-align: right; }
+  code, pre { font-family: Consolas, "Courier New", monospace; font-size: 9pt; }
+  pre { background: #F4F6F9; border: 1px solid #d5dde8; padding: 8px; white-space: pre-wrap; }
+  .nota { background: #FFF8E1; border-left: 4px solid #F4B400; padding: 6px 10px; margin: 8px 0; }
+  .ok { color: #1E7B34; font-weight: bold; }
+  .pie { font-size: 9pt; color: #555; margin-top: 24px; }
+</style>
+</head>
+<body>
+
+<h1>Carga de dimensiones del Data Warehouse</h1>
+<div class="meta">
+  Sistema de Análisis de Opiniones de Clientes · Big Data (ITLA) · Estudiante: Luis Angel Ureña Perdomo (Matrícula 2024-1631)<br>
+  Base analítica: PostgreSQL 18.6, base <code>opiniones_clientes</code>, esquema <code>dw</code> (modelo en estrella)<br>
+  Repositorio: <a href="https://github.com/Dexuser/OpinionesETL">https://github.com/Dexuser/OpinionesETL</a>
+</div>
+
+<h2>1. Descripción del proceso</h2>
+<p>
+  Las dimensiones del modelo en estrella se cargan desde el <strong>staging</strong> (esquema <code>stg</code>) mediante el procedimiento
+  <code>stg.sp_cargar_dw</code>, que el Worker Service invoca dentro de una única transacción después de la extracción de las tres fuentes.
+  La carga es <strong>código SQL ejecutado desde C# (Npgsql)</strong>: no requiere herramientas gráficas.
+</p>
+
+<h3>1.1 Flujo</h3>
+<ol>
+  <li><strong>Extracción</strong> en paralelo (<code>Task.WhenAll</code>): CSV de encuestas, base operacional (reseñas web, clientes y productos) y API REST de comentarios sociales.</li>
+  <li><strong>Staging</strong>: cada extractor reemplaza sus filas en <code>stg.opinion</code>, <code>stg.cliente</code>, <code>stg.producto</code> y <code>stg.rechazo</code> con COPY binario, en una transacción por fuente.</li>
+  <li><strong>Carga</strong>: <code>CALL stg.sp_cargar_dw(...)</code>, que carga las dimensiones en el orden indicado y después los hechos.</li>
+</ol>
+
+<h3>1.2 Orden de carga de las dimensiones</h3>
+<table>
+  <tr><th>Paso</th><th>Dimensión</th><th>Origen</th><th>Regla de carga</th></tr>
+  <tr><td>1</td><td><code>dim_producto</code></td><td><code>stg.producto</code></td><td><code>INSERT ... ON CONFLICT (id_producto) DO UPDATE</code>: inserta nuevos y actualiza nombre y categoría.</td></tr>
+  <tr><td>2</td><td><code>dim_cliente</code></td><td><code>stg.cliente</code></td><td>Igual que producto. El registro 0 «Anónimo» viene de la carga inicial del modelo.</td></tr>
+  <tr><td>3</td><td>Rechazos de integridad</td><td><code>stg.opinion</code></td><td>Las opiniones con producto o cliente inexistente se registran en <code>stg.rechazo</code> (etapa «Carga») y no llegan a los hechos.</td></tr>
+  <tr><td>4</td><td><code>dim_tiempo</code></td><td>Fechas de <code>stg.opinion</code></td><td>Genera un registro por día desde el primer al último mes cubierto por las opiniones, con <code>ON CONFLICT (id_tiempo) DO NOTHING</code>.</td></tr>
+  <tr><td>5</td><td><code>dim_fuente</code></td><td><code>stg.opinion</code></td><td>Combinación única de tipo de fuente y canal. <code>ON CONFLICT (tipo_fuente, canal) DO NOTHING</code>.</td></tr>
+  <tr><td>—</td><td><code>dim_sentimiento</code> y <code>dim_evento</code></td><td>Catálogos fijos</td><td>Se cargan una vez con el script <code>sql/04_modelo_analitico_dw.sql</code>; el sentimiento se asigna por puntaje o por palabras clave.</td></tr>
+</ol>
+
+<div class="nota">
+  <strong>Idempotencia.</strong> Todas las cargas usan claves naturales con <code>ON CONFLICT</code>, así que ejecutar el proceso varias veces no duplica dimensiones ni hechos.
+  La segunda ejecución de la prueba reporta 0 días nuevos y 0 fuentes nuevas.
+</div>
+
+<h2>2. Evidencias de funcionamiento</h2>
+
+<h3>2.1 Ejecución completa del Worker (carga limpia)</h3>
+<pre>
+Inicio: 2026-11-20 17:58:33   Duración total: 0.31 s
+
+Fuente            Leídos  Extraídos  Rechazados  Tiempo (ms)   Filas/s
+CSV                  800        800           0          244      3282
+BaseOperacional      200        200           0          197      1017
+ApiSocial            200        200           0          187      1068
+
+Carga al almacén (dw):
+  Opiniones en staging ............ 1200
+  Rechazadas por integridad ....... 494  (ver stg.rechazo, etapa 'Carga')
+  Hechos nuevos en dw ............. 706
+  Ya existentes (idempotencia) .... 0
+  Días nuevos en dim_tiempo ....... 395
+  Fuentes nuevas en dim_fuente .... 0
+  Duración de la carga ............ 59 ms
+
+Estado: EXITOSO
+</pre>
+
+<h3>2.2 Segunda ejecución (idempotencia)</h3>
+<table>
+  <tr><th>Concepto</th><th class="num">Primera ejecución</th><th class="num">Segunda ejecución</th></tr>
+  <tr><td>Opiniones en staging</td><td class="num">1200</td><td class="num">1200</td></tr>
+  <tr><td>Rechazadas por integridad</td><td class="num">494</td><td class="num">494</td></tr>
+  <tr><td>Hechos nuevos</td><td class="num">706</td><td class="num">0</td></tr>
+  <tr><td>Ya existentes</td><td class="num">0</td><td class="num">706</td></tr>
+  <tr><td>Días nuevos en dim_tiempo</td><td class="num">395</td><td class="num">0</td></tr>
+</table>
+
+<h3>2.3 Validación de integridad referencial</h3>
+<p>Se verificó que ningún hecho apunte a una dimensión inexistente:</p>
+<table>
+  <tr><th>Relación del hecho</th><th class="num">Hechos sin dimensión</th></tr>
+  <tr><td>fact_opinion → dim_tiempo</td><td class="num">0</td></tr>
+  <tr><td>fact_opinion → dim_producto</td><td class="num">0</td></tr>
+  <tr><td>fact_opinion → dim_cliente</td><td class="num">0</td></tr>
+  <tr><td>fact_opinion → dim_fuente</td><td class="num">0</td></tr>
+  <tr><td>fact_opinion → dim_sentimiento</td><td class="num">0</td></tr>
+</table>
+<p>Además, el script <code>sql/07_consultas_validacion_worker.sql</code> dio 0 duplicados y 494 rechazos de integridad. <span class="ok">Resultado: correcto.</span></p>
+
+<h3>2.4 Escenarios de error probados</h3>
+<table>
+  <tr><th>Escenario</th><th>Resultado observado</th></tr>
+  <tr><td>CSV con 9 filas defectuosas</td><td>2 extraídas, 7 rechazadas con motivo (duplicado, clasificación inconsistente, fecha inválida, comentario obligatorio, puntaje fuera de rango, IdCliente inválido, fecha fuera de rango).</td></tr>
+  <tr><td>API con clave inválida</td><td>Falla solo la fuente API (HTTP 401, sin reintentos); las demás se cargan; código de salida 1.</td></tr>
+  <tr><td>API con dos 503 simulados</td><td>Reintenta con esperas de 500 ms y 1 s, y termina con éxito.</td></tr>
+  <tr><td>API apagada</td><td>Reintenta 3 veces y falla solo esa fuente; código de salida 1.</td></tr>
+</table>
+
+<h2>3. Tablas cargadas</h2>
+
+<h3>3.1 Conteo por tabla del DW</h3>
+<table>
+  <tr><th>Tabla</th><th>Tipo</th><th class="num">Registros</th><th>Clave sustituta / natural</th></tr>
+  <tr><td><code>dw.dim_tiempo</code></td><td>Dimensión</td><td class="num">395</td><td><code>id_tiempo</code> (AAAAMMDD)</td></tr>
+  <tr><td><code>dw.dim_producto</code></td><td>Dimensión</td><td class="num">200</td><td><code>sk_producto</code> / <code>id_producto</code></td></tr>
+  <tr><td><code>dw.dim_cliente</code></td><td>Dimensión</td><td class="num">501</td><td><code>sk_cliente</code> / <code>id_cliente</code> (0 = Anónimo)</td></tr>
+  <tr><td><code>dw.dim_fuente</code></td><td>Dimensión</td><td class="num">5</td><td><code>sk_fuente</code> (tipo + canal)</td></tr>
+  <tr><td><code>dw.dim_sentimiento</code></td><td>Dimensión</td><td class="num">4</td><td><code>sk_sentimiento</code></td></tr>
+  <tr><td><code>dw.dim_evento</code></td><td>Dimensión</td><td class="num">1</td><td><code>sk_evento</code> (0 = Sin evento)</td></tr>
+  <tr><td><code>dw.fact_opinion</code></td><td>Hechos</td><td class="num">706</td><td><code>sk_opinion</code>; único por <code>(origen, id_origen)</code></td></tr>
+</table>
+
+<h3>3.2 Muestra de cada dimensión</h3>
+
+<p><strong>dim_fuente</strong></p>
+<table>
+  <tr><th class="num">sk_fuente</th><th>tipo_fuente</th><th>canal</th></tr>
+  <tr><td class="num">1</td><td>Encuesta</td><td>EncuestaInterna</td></tr>
+  <tr><td class="num">2</td><td>Reseña web</td><td>Web</td></tr>
+  <tr><td class="num">3</td><td>Red social</td><td>Instagram</td></tr>
+  <tr><td class="num">4</td><td>Red social</td><td>Facebook</td></tr>
+  <tr><td class="num">5</td><td>Red social</td><td>Twitter</td></tr>
+</table>
+
+<p><strong>dim_sentimiento</strong></p>
+<table>
+  <tr><th class="num">sk_sentimiento</th><th>nombre</th></tr>
+  <tr><td class="num">0</td><td>Sin clasificar</td></tr>
+  <tr><td class="num">1</td><td>Positiva</td></tr>
+  <tr><td class="num">2</td><td>Neutra</td></tr>
+  <tr><td class="num">3</td><td>Negativa</td></tr>
+</table>
+
+<p><strong>dim_evento</strong></p>
+<table>
+  <tr><th class="num">sk_evento</th><th>nombre</th><th>tipo</th></tr>
+  <tr><td class="num">0</td><td>Sin evento</td><td>Ninguno</td></tr>
+</table>
+
+<p><strong>dim_cliente</strong> (primeros 3 de 501)</p>
+<table>
+  <tr><th class="num">sk_cliente</th><th class="num">id_cliente</th><th>nombre</th><th>email</th><th>pais</th></tr>
+  <tr><td class="num">0</td><td class="num">—</td><td>Anónimo</td><td></td><td>No disponible</td></tr>
+  <tr><td class="num">1</td><td class="num">1</td><td>Cliente_1</td><td>cliente1@mail.com</td><td>No disponible</td></tr>
+  <tr><td class="num">2</td><td class="num">2</td><td>Cliente_2</td><td>cliente2@mail.com</td><td>No disponible</td></tr>
+</table>
+
+<p><strong>dim_producto</strong> (primeros 3 de 200)</p>
+<table>
+  <tr><th class="num">sk_producto</th><th class="num">id_producto</th><th>nombre</th><th>categoria</th></tr>
+  <tr><td class="num">1</td><td class="num">1</td><td>Producto_1</td><td>Juguetes</td></tr>
+  <tr><td class="num">2</td><td class="num">2</td><td>Producto_2</td><td>Electrónica</td></tr>
+  <tr><td class="num">3</td><td class="num">3</td><td>Producto_3</td><td>Juguetes</td></tr>
+</table>
+
+<p><strong>dim_tiempo</strong> (primeros 3 de 395; rango 2024-09-01 a 2025-09-30)</p>
+<table>
+  <tr><th class="num">id_tiempo</th><th>fecha</th><th class="num">anio</th><th class="num">trimestre</th><th class="num">mes</th><th>nombre_mes</th><th>anio_mes</th><th>nombre_dia</th><th>fin_de_semana</th></tr>
+  <tr><td class="num">20240901</td><td>2024-09-01</td><td class="num">2024</td><td class="num">3</td><td class="num">9</td><td>Septiembre</td><td>2024-09</td><td>Domingo</td><td>Sí</td></tr>
+  <tr><td class="num">20240902</td><td>2024-09-02</td><td class="num">2024</td><td class="num">3</td><td class="num">9</td><td>Septiembre</td><td>2024-09</td><td>Lunes</td><td>No</td></tr>
+  <tr><td class="num">20240903</td><td>2024-09-03</td><td class="num">2024</td><td class="num">3</td><td class="num">9</td><td>Septiembre</td><td>2024-09</td><td>Martes</td><td>No</td></tr>
+</table>
+
+<h3>3.3 Hechos por fuente y sentimiento</h3>
+<table>
+  <tr><th>Tipo de fuente</th><th>Canal</th><th>Negativa</th><th class="num">Neutra</th><th class="num">Positiva</th><th class="num">Total</th></tr>
+  <tr><td>Encuesta</td><td>EncuestaInterna</td><td class="num">60</td><td class="num">77</td><td class="num">169</td><td class="num">306</td></tr>
+  <tr><td>Reseña web</td><td>Web</td><td class="num">68</td><td class="num">49</td><td class="num">83</td><td class="num">200</td></tr>
+  <tr><td>Red social</td><td>Instagram</td><td class="num">19</td><td class="num">25</td><td class="num">33</td><td class="num">77</td></tr>
+  <tr><td>Red social</td><td>Facebook</td><td class="num">24</td><td class="num">16</td><td class="num">28</td><td class="num">68</td></tr>
+  <tr><td>Red social</td><td>Twitter</td><td class="num">15</td><td class="num">17</td><td class="num">23</td><td class="num">55</td></tr>
+  <tr><td colspan="2"><strong>Total</strong></td><td class="num"><strong>186</strong></td><td class="num"><strong>184</strong></td><td class="num"><strong>336</strong></td><td class="num"><strong>706</strong></td></tr>
+</table>
+
+<h2>4. Conclusión</h2>
+<p>
+  Las siete tablas de dimensiones y la tabla de hechos del modelo se cargan desde staging con el procedimiento <code>stg.sp_cargar_dw</code>, invocado por el Worker.
+  La carga reproduce los conteos esperados (706 hechos, 494 rechazos, 395 días), es idempotente, y no deja hechos huérfanos.
+  El código fuente completo, incluidos los scripts SQL y el Worker, está en el repositorio:
+  <a href="https://github.com/Dexuser/OpinionesETL">https://github.com/Dexuser/OpinionesETL</a>.
+</p>
+
+<div class="pie">Generado el 25/11/2026 a partir de la base <code>opiniones_clientes</code> y de la ejecución del Worker del 20/11/2026.</div>
+</body>
+</html>
